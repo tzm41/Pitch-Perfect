@@ -103,15 +103,15 @@
                                 <exclude reference="Ck7-r2-yKm"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3WK-py-2Lz"/>
-                                <exclude reference="6R6-hV-g2w"/>
-                                <exclude reference="PDn-yo-fuU"/>
                                 <exclude reference="It3-yH-yZ4"/>
                                 <exclude reference="S65-Uq-uoy"/>
                                 <exclude reference="F4w-qg-2LI"/>
                                 <exclude reference="Fau-xe-gja"/>
-                                <exclude reference="vpv-ab-314"/>
                                 <exclude reference="TJS-fd-KHM"/>
+                                <exclude reference="vpv-ab-314"/>
+                                <exclude reference="3WK-py-2Lz"/>
+                                <exclude reference="6R6-hV-g2w"/>
+                                <exclude reference="PDn-yo-fuU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -122,15 +122,15 @@
                                 <include reference="Ck7-r2-yKm"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3WK-py-2Lz"/>
-                                <include reference="6R6-hV-g2w"/>
-                                <include reference="PDn-yo-fuU"/>
                                 <include reference="It3-yH-yZ4"/>
                                 <include reference="S65-Uq-uoy"/>
                                 <include reference="F4w-qg-2LI"/>
                                 <include reference="Fau-xe-gja"/>
-                                <include reference="vpv-ab-314"/>
                                 <include reference="TJS-fd-KHM"/>
+                                <include reference="vpv-ab-314"/>
+                                <include reference="3WK-py-2Lz"/>
+                                <include reference="6R6-hV-g2w"/>
+                                <include reference="PDn-yo-fuU"/>
                             </mask>
                         </variation>
                     </view>
@@ -309,16 +309,16 @@
                                 <exclude reference="2m0-vy-ndH"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="POA-xb-o2I"/>
+                                <exclude reference="lUv-gi-aoC"/>
+                                <exclude reference="pae-Mc-DBx"/>
+                                <exclude reference="QrJ-wy-gD2"/>
+                                <exclude reference="RQy-Pm-576"/>
+                                <exclude reference="s6x-De-XK7"/>
                                 <exclude reference="tR4-tm-nEv"/>
                                 <exclude reference="tSj-j4-V0B"/>
                                 <exclude reference="Gcb-aH-xyb"/>
                                 <exclude reference="oTd-OA-ofK"/>
-                                <exclude reference="QrJ-wy-gD2"/>
-                                <exclude reference="RQy-Pm-576"/>
-                                <exclude reference="lUv-gi-aoC"/>
-                                <exclude reference="pae-Mc-DBx"/>
-                                <exclude reference="s6x-De-XK7"/>
-                                <exclude reference="POA-xb-o2I"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -330,16 +330,16 @@
                                 <include reference="2m0-vy-ndH"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="POA-xb-o2I"/>
+                                <include reference="lUv-gi-aoC"/>
+                                <include reference="pae-Mc-DBx"/>
+                                <include reference="QrJ-wy-gD2"/>
+                                <include reference="RQy-Pm-576"/>
+                                <include reference="s6x-De-XK7"/>
                                 <include reference="tR4-tm-nEv"/>
                                 <include reference="tSj-j4-V0B"/>
                                 <include reference="Gcb-aH-xyb"/>
                                 <include reference="oTd-OA-ofK"/>
-                                <include reference="QrJ-wy-gD2"/>
-                                <include reference="RQy-Pm-576"/>
-                                <include reference="lUv-gi-aoC"/>
-                                <include reference="pae-Mc-DBx"/>
-                                <include reference="s6x-De-XK7"/>
-                                <include reference="POA-xb-o2I"/>
                             </mask>
                         </variation>
                     </view>
