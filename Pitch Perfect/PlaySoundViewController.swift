@@ -11,34 +11,39 @@ import AVFoundation
 
 class PlaySoundViewController: UIViewController {
     var audioPlayer: AVAudioPlayer!
+    var audioEngine: AVAudioEngine!
+    
+    var receivedAudio: RecordedAudio!
+    var audioFile: AVAudioFile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let quoteSound = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
-            try! audioPlayer = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: quoteSound))
-            audioPlayer.enableRate = true
-        } else {
-            print("File path is empty")
-        }
-        // Do any additional setup after loading the view.
+        try! audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL)
+        audioPlayer.enableRate = true
+        
+        audioEngine = AVAudioEngine()
+        try! audioFile = AVAudioFile(forReading: receivedAudio.filePathURL)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func playSlow(sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer.rate = 0.6
-        audioPlayer.play()
+        playAtRatePitch(0.6)
     }
     
     @IBAction func playFast(sender: UIButton) {
-        audioPlayer.stop()
-        audioPlayer.rate = 1.4
-        audioPlayer.play()
+        playAtRatePitch(1.4)
+    }
+    
+    @IBAction func playChipmunk(sender: UIButton) {
+        playAtRatePitch(pitch: 1000)
+    }
+    
+    @IBAction func playDart(sender: UIButton) {
+        playAtRatePitch(pitch: -1000)
     }
 
     @IBAction func stopPlay(sender: UIButton) {
@@ -46,14 +51,31 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.currentTime = 0
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func playAtRatePitch(rate: Float = 1.0, pitch: Float = 1.0) {
+        audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
+        
+        let audioPlayerNode = AVAudioPlayerNode()
+        audioEngine.attachNode(audioPlayerNode)
+        
+        let changeTimePitch = AVAudioUnitTimePitch()
+        changeTimePitch.pitch = pitch
+        changeTimePitch.rate = rate
+        audioEngine.attachNode(changeTimePitch)
+        
+        audioEngine.connect(audioPlayerNode, to: changeTimePitch, format: nil)
+        audioEngine.connect(changeTimePitch, to: audioEngine.outputNode, format: nil)
+        
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        do {
+            try audioEngine.start()
+        } catch let error as NSError {
+            print(error.description)
+        }
+        audioPlayerNode.play()
     }
-    */
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
 }

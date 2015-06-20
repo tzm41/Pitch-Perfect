@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hpB-gC-BQy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -9,7 +10,7 @@
         <!--Record-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordSoundViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btb-eY-hxC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btb-eY-hxC" userLabel="Record">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
+                                <accessibility key="accessibilityConfiguration" label="Record"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="btb-eY-hxC" secondAttribute="height" multiplier="1:2" id="VBb-Eo-E1C"/>
                                 </constraints>
@@ -68,9 +70,15 @@
                                 </variation>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hw4-Y2-Pc0"/>
-                                    <segue destination="wHl-te-zpo" kind="show" id="FTh-rL-p77"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck7-r2-yKm">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -81,7 +89,9 @@
                             <constraint firstItem="pYM-PY-QZN" firstAttribute="top" secondItem="btb-eY-hxC" secondAttribute="bottom" constant="54" id="Fau-xe-gja">
                                 <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                             </constraint>
+                            <constraint firstItem="Ck7-r2-yKm" firstAttribute="top" secondItem="btb-eY-hxC" secondAttribute="bottom" constant="8" id="It3-yH-yZ4"/>
                             <constraint firstItem="btb-eY-hxC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PDn-yo-fuU"/>
+                            <constraint firstItem="Ck7-r2-yKm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S65-Uq-uoy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wgi-La-rqF" secondAttribute="bottom" constant="20" id="TJS-fd-KHM"/>
                             <constraint firstItem="Wgi-La-rqF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vpv-ab-314"/>
                         </constraints>
@@ -90,15 +100,18 @@
                                 <exclude reference="btb-eY-hxC"/>
                                 <exclude reference="pYM-PY-QZN"/>
                                 <exclude reference="Wgi-La-rqF"/>
+                                <exclude reference="Ck7-r2-yKm"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="F4w-qg-2LI"/>
-                                <exclude reference="Fau-xe-gja"/>
-                                <exclude reference="TJS-fd-KHM"/>
-                                <exclude reference="vpv-ab-314"/>
                                 <exclude reference="3WK-py-2Lz"/>
                                 <exclude reference="6R6-hV-g2w"/>
                                 <exclude reference="PDn-yo-fuU"/>
+                                <exclude reference="It3-yH-yZ4"/>
+                                <exclude reference="S65-Uq-uoy"/>
+                                <exclude reference="F4w-qg-2LI"/>
+                                <exclude reference="Fau-xe-gja"/>
+                                <exclude reference="vpv-ab-314"/>
+                                <exclude reference="TJS-fd-KHM"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -106,15 +119,18 @@
                                 <include reference="btb-eY-hxC"/>
                                 <include reference="pYM-PY-QZN"/>
                                 <include reference="Wgi-La-rqF"/>
+                                <include reference="Ck7-r2-yKm"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="F4w-qg-2LI"/>
-                                <include reference="Fau-xe-gja"/>
-                                <include reference="TJS-fd-KHM"/>
-                                <include reference="vpv-ab-314"/>
                                 <include reference="3WK-py-2Lz"/>
                                 <include reference="6R6-hV-g2w"/>
                                 <include reference="PDn-yo-fuU"/>
+                                <include reference="It3-yH-yZ4"/>
+                                <include reference="S65-Uq-uoy"/>
+                                <include reference="F4w-qg-2LI"/>
+                                <include reference="Fau-xe-gja"/>
+                                <include reference="vpv-ab-314"/>
+                                <include reference="TJS-fd-KHM"/>
                             </mask>
                         </variation>
                     </view>
@@ -123,6 +139,8 @@
                         <outlet property="recordButton" destination="btb-eY-hxC" id="X2r-Xz-umY"/>
                         <outlet property="recordingLabel" destination="pYM-PY-QZN" id="pzj-qa-WaQ"/>
                         <outlet property="stopButton" destination="Wgi-La-rqF" id="QnD-JK-cOe"/>
+                        <outlet property="tapToRecordLabel" destination="Ck7-r2-yKm" id="cQf-qd-OZX"/>
+                        <segue destination="wHl-te-zpo" kind="show" identifier="stopRecording" id="8Sd-Dg-bHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -144,7 +162,7 @@
                             <userLayoutGuide location="124" affinity="minY"/>
                             <userLayoutGuide location="50" affinity="minX"/>
                             <userLayoutGuide location="350" affinity="minX"/>
-                            <userLayoutGuide location="250" affinity="minY"/>
+                            <userLayoutGuide location="274" affinity="minY"/>
                         </userGuides>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJP-Oe-fKN">
@@ -219,13 +237,65 @@
                                     <action selector="stopPlay:" destination="wHl-te-zpo" eventType="touchUpInside" id="k2E-94-8fB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSh-7u-Tay">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="SnI-K0-qsR"/>
+                                    <constraint firstAttribute="height" constant="100" id="oGw-VR-jXY"/>
+                                </constraints>
+                                <state key="normal" image="Chipmunk"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SnI-K0-qsR"/>
+                                        <exclude reference="oGw-VR-jXY"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="SnI-K0-qsR"/>
+                                        <include reference="oGw-VR-jXY"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="playChipmunk:" destination="wHl-te-zpo" eventType="touchUpInside" id="3sZ-fY-T61"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2m0-vy-ndH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="BtP-qq-aVh"/>
+                                    <constraint firstAttribute="height" constant="100" id="k4u-Ti-EUZ"/>
+                                </constraints>
+                                <state key="normal" image="Darth"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BtP-qq-aVh"/>
+                                        <exclude reference="k4u-Ti-EUZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="BtP-qq-aVh"/>
+                                        <include reference="k4u-Ti-EUZ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="playDart:" destination="wHl-te-zpo" eventType="touchUpInside" id="AFb-ec-im8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vSh-7u-Tay" firstAttribute="top" secondItem="aJP-Oe-fKN" secondAttribute="bottom" constant="50" id="Gcb-aH-xyb"/>
                             <constraint firstItem="uek-8m-SkZ" firstAttribute="top" secondItem="WBf-qN-GsP" secondAttribute="bottom" constant="20" id="POA-xb-o2I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J8Q-uR-3wC" secondAttribute="trailing" constant="30" id="QrJ-wy-gD2"/>
                             <constraint firstItem="J8Q-uR-3wC" firstAttribute="top" secondItem="ewV-5X-ube" secondAttribute="bottom" constant="60" id="RQy-Pm-576"/>
+                            <constraint firstItem="2m0-vy-ndH" firstAttribute="top" secondItem="J8Q-uR-3wC" secondAttribute="bottom" constant="50" id="lUv-gi-aoC"/>
+                            <constraint firstItem="vSh-7u-Tay" firstAttribute="leading" secondItem="D3x-qO-COW" secondAttribute="leadingMargin" constant="30" id="oTd-OA-ofK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2m0-vy-ndH" secondAttribute="trailing" constant="30" id="pae-Mc-DBx"/>
                             <constraint firstItem="WBf-qN-GsP" firstAttribute="centerX" secondItem="D3x-qO-COW" secondAttribute="centerX" id="s6x-De-XK7"/>
                             <constraint firstItem="aJP-Oe-fKN" firstAttribute="top" secondItem="ewV-5X-ube" secondAttribute="bottom" constant="60" id="tR4-tm-nEv"/>
                             <constraint firstItem="aJP-Oe-fKN" firstAttribute="leading" secondItem="D3x-qO-COW" secondAttribute="leadingMargin" constant="30" id="tSj-j4-V0B"/>
@@ -235,12 +305,18 @@
                                 <exclude reference="aJP-Oe-fKN"/>
                                 <exclude reference="J8Q-uR-3wC"/>
                                 <exclude reference="WBf-qN-GsP"/>
+                                <exclude reference="vSh-7u-Tay"/>
+                                <exclude reference="2m0-vy-ndH"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="tR4-tm-nEv"/>
                                 <exclude reference="tSj-j4-V0B"/>
+                                <exclude reference="Gcb-aH-xyb"/>
+                                <exclude reference="oTd-OA-ofK"/>
                                 <exclude reference="QrJ-wy-gD2"/>
                                 <exclude reference="RQy-Pm-576"/>
+                                <exclude reference="lUv-gi-aoC"/>
+                                <exclude reference="pae-Mc-DBx"/>
                                 <exclude reference="s6x-De-XK7"/>
                                 <exclude reference="POA-xb-o2I"/>
                             </mask>
@@ -250,12 +326,18 @@
                                 <include reference="aJP-Oe-fKN"/>
                                 <include reference="J8Q-uR-3wC"/>
                                 <include reference="WBf-qN-GsP"/>
+                                <include reference="vSh-7u-Tay"/>
+                                <include reference="2m0-vy-ndH"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="tR4-tm-nEv"/>
                                 <include reference="tSj-j4-V0B"/>
+                                <include reference="Gcb-aH-xyb"/>
+                                <include reference="oTd-OA-ofK"/>
                                 <include reference="QrJ-wy-gD2"/>
                                 <include reference="RQy-Pm-576"/>
+                                <include reference="lUv-gi-aoC"/>
+                                <include reference="pae-Mc-DBx"/>
                                 <include reference="s6x-De-XK7"/>
                                 <include reference="POA-xb-o2I"/>
                             </mask>
@@ -287,6 +369,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Chipmunk" width="306" height="306"/>
+        <image name="Darth" width="306" height="306"/>
         <image name="Microphone" width="206" height="388"/>
         <image name="Rabbit" width="306" height="306"/>
         <image name="Snail" width="306" height="306"/>
